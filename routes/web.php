@@ -11,6 +11,19 @@
 |
 */
 
+use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\StoresController;
+use App\Http\Controllers\ReviewsController;
+
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+
+$router->get('/products', 'ProductsController@index');
+$router->get('/products/{id}', 'ProductsController@show');
+
+$router->post('/products', 'ProductsController@create');
+
+$router->get('/stores', 'StoresController@index');
+$router->get('/reviews', 'ReviewsController@index');
